@@ -6,7 +6,7 @@ return {
   -- dependencies = { "nvim-mini/mini.icons" },
   opts = {
     files = {
-      find_opts = [[\! -path '*/.git/*' -and \! -path '*/target/*' -and \! -path '*/project/*' -and \! -path '*/.bloop/*' -and \! -path '*/.idea/*' -and \! -path '*/.metals/*' -and \! -path '*/node_modules/*' -and \! -path '*/build/*' -and \! -path '*/dist/*']]
+      find_opts = [[\! -path '*/.git/*' -and \! -path '*/target/*' -and \! -path '*/project/*' -and \! -path '*/.bloop/*' -and \! -path '*/.idea/*' -and \! -path '*/.metals/*' -and \! -path '*/node_modules/*' -and \! -path '*/build/*' -and \! -path '*/dist/*' -and \! -path '*/.jj/*']]
     },
   },
   keys = {
