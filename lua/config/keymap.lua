@@ -2,11 +2,11 @@
 
 vim.keymap.set("n", "<F3>", ":noh<CR>")
 
--- Leader prefixes:
+-- Leader
 --  + 'c' is code-related (lsp etc)
 --  + 'w' is warnings/diagnostics
--- Local leader prefixes:
--- SPC = pickers
+-- Local leader
+-- SPC (pickers)
 
 -- # <leader>c -- code-related
 -- ,ch: Code hierarchy (navbuddy)
@@ -24,16 +24,27 @@ vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format,
   { desc = "format" })
 
 -- # <leader>w -- warnings/diagnostics
-vim.keymap.set("n", "<leader>wa", vim.diagnostic.setqflist,
-  { desc = "workspace diagnostics" }) -- is that trouble ,xX?
-vim.keymap.set("n", "<leader>we", function()
-  vim.diagnostic.setqflist({ severity = "E" })
-end, { desc = "diagnostics (errors) for workspace" })
+-- <leader>ww: Workspace warnings
+-- <leader>we: Workspace errors
+-- <leader>wa: Workspace diagnostics
+-- <leader>wb: Buffer diagnostics
 vim.keymap.set("n", "<leader>ww", function()
   vim.diagnostic.setqflist({ severity = "W" })
 end, { desc = "diagnostics (warning) for workspace" })
+vim.keymap.set("n", "<leader>we", function()
+  vim.diagnostic.setqflist({ severity = "E" })
+end, { desc = "diagnostics (errors) for workspace" })
+vim.keymap.set("n", "<leader>wa", vim.diagnostic.setqflist,
+  { desc = "workspace diagnostics" }) -- is that trouble ,xX?
 vim.keymap.set("n", "<leader>wb", vim.diagnostic.setloclist,
   { desc = "diagnostics for buffer" })
+
+-- # <localleader>
+-- <ll>\D: Virtual line diagnostics
+vim.keymap.set('n', '<localleader>D', function()
+  local new_config = not vim.diagnostic.config().virtual_lines
+  vim.diagnostic.config({ virtual_lines = new_config })
+end, { desc = 'Toggle diagnostic virtual_lines' })
 
 -- # Pickers
 -- <SPC>e: All files

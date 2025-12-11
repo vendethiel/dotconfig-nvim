@@ -97,6 +97,13 @@ return {
     -- Trailspace
     require("mini.trailspace").setup()
 
+    -- Jump2d
+    require('mini.jump2d').setup {
+      mappings = {
+        start_jumping = 'gh'
+      }
+    }
+
     -- Splitjoin - why?
     -- require("mini.splitjoin").setup()
 
@@ -108,10 +115,7 @@ return {
     -- require('mini.diff').setup()
     -- Files -- use fzf instead
     -- require('mini.files').setup()
-    -- Jump -- I'm fine with single line fFtT
     -- require('mini.jump').setup()
-    -- Jump2d -- not my cup of tea
-    -- require('mini.jump2d').setup()
     -- Pick -- interesting for later, perhaps
     -- require('mini.pick').setup()
     -- Visits - no need
