@@ -8,6 +8,8 @@ return {
       showImplicitConversionsAndClasses = true,
       showInferredType = true,
       superMethodLensesEnabled = true,
+      -- nvim-metals is absolutely drunk and prefers to rely on `coursier` than to just rely on $PATH..?
+      metalsBinaryPath = vim.fn.exepath("metals")
     }
 
     metals_config.init_options.statusBarProvider = "off"

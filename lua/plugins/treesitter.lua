@@ -1,17 +1,13 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  branch = 'master',
+  branch = "main",
   lazy = false,
   build = ":TSUpdate",
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+  },
   config = function ()
-    require("nvim-treesitter.configs").setup {
-      ensure_installed = { "c", "lua", "scala", "javascript", "typescript", },
-
-      auto_install = true,
-
-      highlight = {
-        enable = true,
-      }
-    }
-  end
+    -- require("nvim-treesitter").setup { }
+    require("nvim-treesitter").install { "c", "lua", "javascript", "typescript" }
+  end,
 }
