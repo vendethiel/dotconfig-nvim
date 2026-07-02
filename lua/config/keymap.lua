@@ -65,8 +65,12 @@ end, { desc = 'Toggle diagnostic virtual_lines' })
 -- <SPC>cn: nUshell config
 -- <SPC>j: Jumplist
 -- <SPC>b: Open buffers
+-- <SPC>m: Document methods
 -- <SPC>?: Keymap
 -- <SPC><SPC>: Resume last finder
+-- TODO maybe:
+--  o lsp_finder 	All LSP locations, combined view
+--  o lsp_workspace_symbols 	Workspace Symbols
 local CONFIGS = {
   { "a", "~/.config/", "XDG_CONFIG_HOME", false, },
   { "j", "~/.config/jj/conf.d/", "Jujutsu config", true },
@@ -103,6 +107,8 @@ for _, config in ipairs(CONFIGS) do
 end
 vim.keymap.set("n", " b", ":FzfLua buffers<CR>",
   { desc = "buffers" })
+vim.keymap.set("n", " m", ":FzfLua lsp_document_symbols<CR>Methods]",
+  { desc = "document methods" })
 vim.keymap.set("n", " ?", ":FzfLua keymaps<CR>",
   { desc = "keymap" })
 vim.keymap.set("n", "  ", ":FzfLua resume<CR>",
